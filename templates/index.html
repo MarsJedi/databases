@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Main
+{% endblock %}
+
+
+{% block body %}
+
+    <h1 align="center"> Slipher Plan </h1>
+
+    <div class="row" align="center">
+        <div style="background-image: url('background.jpeg');">
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div align="center" class="jumbotron">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Time Spent</th>
+                            <th>% to 10,000 hours</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in data_all %}
+                            <tr>
+                                <a href={{ url_for('subject', subject_id=subject)}}><td>{{ d[0] }}</td></a>
+                                <td>{{ d[1] }}</td>
+                                <td>{{ d[2] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="col">
+            <div align="center" class="jumbotron">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Time Spent</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in data_today %}
+                            <tr>
+                                <td>{{ d[0] }}</td>
+                                <td>{{ d[1] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
